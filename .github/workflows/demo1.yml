@@ -4,6 +4,13 @@ on:
     types: 
       - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main #only pushes to main branch triggers the branch
+      - 'dev-*'
+      - 'feat/**'
+    paths-ignore:
+      - '.github/worksflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
